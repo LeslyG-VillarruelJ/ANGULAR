@@ -1,50 +1,56 @@
 <div>
-    <div>
-        <h2>FACTURA</h2>
-        <div>
-            <ul>
-                <li>No. {{invoice.id}}</li>
-            </ul>
+    <div class="card my-5">
+        <div class="card-header">
+            <h2>FACTURA</h2>
         </div>
-        <div>
-            <h3>EMPRESA</h3>
-            <ul>
-                <li>RUC: {{invoice.company.id}}</li>
-                <li>NOMBRE: {{invoice.company.name}}</li>
-                <li>
-                    DIRECCIÓN: {{invoice.company.address.city}} - {{invoice.company.address.principalStreet}}
-                    {{invoice.company.address.code}} {{invoice.company.address.secondaryStreet}}
-                </li>
-            </ul>
-        </div>
-        <div>
-            <h3>CLIENTE</h3>
-            <ul>
-                <li>NOMBRE: {{invoice.customer.name}} {{invoice.customer.surname}}</li>
-                <li>CÉDULA: {{invoice.customer.id}}</li>
-                <li>
-                    DIRECCIÓN: {{invoice.customer.address.city}} - {{invoice.customer.address.principalStreet}}
-                    {{invoice.customer.address.code}} {{invoice.customer.address.secondaryStreet}}
-                </li>
-            </ul>
-        </div>
-        <div>
-            <table>
-                <thead>
-                    <th>NOMBRE</th>
-                    <th>PRECIO UNITARIO</th>
-                    <th>CANTIDAD</th>
-                </thead>
-                <tbody>
-                    @for (item of invoice.item; track $index) {
-                    <tr>
-                        <td>{{item.product.name}}</td>
-                        <td>{{item.product.price}}</td>
-                        <td>{{item.quantity}}</td>
-                    </tr>
-                    }
-                </tbody>
-            </table>
+        <div class="card-body">
+            <div>
+                <ul>
+                    <li>No. {{invoice.id}}</li>
+                </ul>
+            </div>
+            <div class="row">
+                <div class="col">
+                <h3>EMPRESA</h3>
+                <ul class="list-group">
+                    <li class="list-group-item">RUC: {{invoice.company.id}}</li>
+                    <li class="list-group-item">NOMBRE: {{invoice.company.name}}</li>
+                    <li class="list-group-item">
+                        DIRECCIÓN: {{invoice.company.address.city}} - {{invoice.company.address.principalStreet}}
+                        {{invoice.company.address.code}} {{invoice.company.address.secondaryStreet}}
+                    </li>
+                </ul>
+            </div>
+            <div class="col">
+                <h3>CLIENTE</h3>
+                <ul class="list-group">
+                    <li class="list-group-item">NOMBRE: {{invoice.customer.name}} {{invoice.customer.surname}}</li>
+                    <li class="list-group-item">CÉDULA: {{invoice.customer.id}}</li>
+                    <li class="list-group-item">
+                        DIRECCIÓN: {{invoice.customer.address.city}} - {{invoice.customer.address.principalStreet}}
+                        {{invoice.customer.address.code}} {{invoice.customer.address.secondaryStreet}}
+                    </li>
+                </ul>
+            </div>
+            </div>
+            <div>
+                <table class="table table-striped my-5"                                                                                                                                                                                                                                                                  >
+                    <thead>
+                        <th>NOMBRE</th>
+                        <th>PRECIO UNITARIO</th>
+                        <th>CANTIDAD</th>
+                    </thead>
+                    <tbody>
+                        @for (item of invoice.item; track $index) {
+                        <tr>
+                            <td>{{item.product.name}}</td>
+                            <td>{{item.product.price}}</td>
+                            <td>{{item.quantity}}</td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
